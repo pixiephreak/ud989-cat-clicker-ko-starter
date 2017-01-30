@@ -40,10 +40,14 @@ var ViewModel = function(){
 	var self = this;
 
 	this.catList = ko.observableArray([]);
+	console.log(this.catList());
+	//returns empty array
 
 	initialCats.forEach(function(catItem){
 		self.catList.push( new Cat(catItem));
 	});
+	//is this pushing anything?!?!
+	// why new Cat? What is in Cat class now?
 
 	this.currentCat = ko.observable(this.catList()[0] );
 
@@ -59,5 +63,6 @@ var ViewModel = function(){
 }
 
 ko.applyBindings(new ViewModel());
+
 
 
