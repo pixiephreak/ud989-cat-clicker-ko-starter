@@ -14,15 +14,13 @@ var initialCats = [
 
 ]
 
-var Cat = function(){
-	this.clickCounter = ko.observable(0);
-	this.name = ko.observable('Tabby');
-	this.imgSrc = ko.observable('img/1413379559_412a540d29_z.jpg');
-	this.imgAttribution = ko.observable('something');
-	this.level = ko.observable('');
-	this.nicknames = ko.observableArray([
-		{nickname: 'tabs'}, {nickname: 'tabsee'},{nickname: 'tabster'}
-		]);
+var Cat = function(data){
+	this.clickCounter = ko.observable(data.clickCounter);
+	this.name = ko.observable(data.name);
+	this.imgSrc = ko.observable(data.imgSrc);
+	this.imgAttribution = ko.observable(data.imgAttribution);
+	this.level = ko.observable(data.level);
+	this.nicknames = ko.observableArray(data.nicknames);
 
 	this.level = ko.computed(function(){
 		if(this.clickCounter() <= 5){
